@@ -7,6 +7,7 @@
 #include<Wire.h>
 #include<Adafruit_GFX.h>
 #include<Adafruit_SSD1306.h>
+#include <digitalWriteFast.h>
 
 #define OLED_ADDRESS 0x3C
 #define SCREEN_WIDTH 128
@@ -52,13 +53,13 @@ void setup() {
  display.display();
  //pin mode setting
  pinMode(ENCODER_SW_PIN, INPUT_PULLUP); //BUTTON
- pinMode(CLK_PIN, INPUT);
- pinMode(OUT_CH1, OUTPUT); //CH1
- pinMode(OUT_CH2, OUTPUT); //CH2
- pinMode(OUT_CH3, OUTPUT); //CH3
- pinMode(OUT_CH4, OUTPUT); //CH4
- pinMode(OUT_CH5, OUTPUT); //CH5
- pinMode(OUT_CH6, OUTPUT); //CH6
+ pinModeFast(CLK_PIN, INPUT);
+ pinModeFast(OUT_CH1, OUTPUT); //CH1
+ pinModeFast(OUT_CH2, OUTPUT); //CH2
+ pinModeFast(OUT_CH3, OUTPUT); //CH3
+ pinModeFast(OUT_CH4, OUTPUT); //CH4
+ pinModeFast(OUT_CH5, OUTPUT); //CH5
+ pinModeFast(OUT_CH6, OUTPUT); //CH6
  Serial.begin(115200);
 }
 
@@ -72,8 +73,8 @@ void loop() {
    Serial.println("left");
    oldPosition = newPosition;
  }
- if (digitalRead(CLK_PIN)!= clk_val){
-  clk_val = digitalRead(CLK_PIN);
+ if (digitalReadFast(CLK_PIN)!= clk_val){
+  clk_val = digitalReadFast(CLK_PIN);
   Serial.println("CLOCK");
  }
  
@@ -87,20 +88,20 @@ void loop() {
    sw = 0;
  }
  if(millis()%1000 < 500){
-  digitalWrite(OUT_CH1,HIGH);
-  digitalWrite(OUT_CH2,HIGH);
-  digitalWrite(OUT_CH3,HIGH);
-  digitalWrite(OUT_CH4,HIGH);
-  digitalWrite(OUT_CH5,HIGH);
-  digitalWrite(OUT_CH6,HIGH);
+  digitalWriteFast(OUT_CH1,HIGH);
+  digitalWriteFast(OUT_CH2,HIGH);
+  digitalWriteFast(OUT_CH3,HIGH);
+  digitalWriteFast(OUT_CH4,HIGH);
+  digitalWriteFast(OUT_CH5,HIGH);
+  digitalWriteFast(OUT_CH6,HIGH);
  }
  else{
-  digitalWrite(OUT_CH1,LOW);
-  digitalWrite(OUT_CH2,LOW);
-  digitalWrite(OUT_CH3,LOW);
-  digitalWrite(OUT_CH4,LOW);
-  digitalWrite(OUT_CH5,LOW);
-  digitalWrite(OUT_CH6,LOW);
+  digitalWriteFast(OUT_CH1,LOW);
+  digitalWriteFast(OUT_CH2,LOW);
+  digitalWriteFast(OUT_CH3,LOW);
+  digitalWriteFast(OUT_CH4,LOW);
+  digitalWriteFast(OUT_CH5,LOW);
+  digitalWriteFast(OUT_CH6,LOW);
  }
 }
  
