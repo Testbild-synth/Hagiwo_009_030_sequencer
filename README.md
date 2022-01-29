@@ -1,5 +1,7 @@
 # HAGIWO 6 Channel Sequencer / Euclidean Rythm Sequencer
 
+![Gif of the sequencer running](omages/euclid.gif)
+
 This project is a through hole PCB version the HAGIWO 009 [six channel gate sequencer](https://www.youtube.com/watch?v=YszdC8YdFl0&t=29s) and 030 [euclidean rythm sequencer](https://www.youtube.com/watch?v=lkoBfiq6KPY) eurorack synth modules. the modules run on an Arduino Nano and uses a [0.96 inch Oled I2C Display](https://www.ebay.de/itm/255303518853). The exact brand is not important, just make sure it is 128/64 pixels and has an DDS1306 driver.
 
 Since both modules use the same hardware, I made it so that the panel pcb is flippable to reflect both functions.
