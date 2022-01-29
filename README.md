@@ -30,5 +30,9 @@ There are three Arduino files included in this project:
 - The project file for the euclidean sequencer        (euclidean.ino)
 - A file for testing in/outputs to make sure you soldered everything correctly (test_circuit.ino). This file prints to the serial to test inputs and sets the digital outputs.
 
+You need the [Adafruit_SSD1306](https://www.arduino.cc/reference/en/libraries/adafruit-ssd1306/) and [encoder](https://www.arduino.cc/reference/en/libraries/encoder/) libraries.
+One important change from HAGIWO's code is the introduction of the parameter ENCODER_COUNT_PER_ROTATION. 
+Rotation encoders come in different versions, some have one click per rotation, some have two, others even have four. If you see multiple messages during a single turn while running the test_circuit file, set this parameter higher in all files before uploading.
+
 
 
