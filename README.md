@@ -40,5 +40,9 @@ I also changed it such that is uses DigitalReadFast instead of DigitalRead (to r
 One important change from HAGIWO's code is the introduction of the parameter ENCODER_COUNT_PER_ROTATION. 
 Rotation encoders come in different versions, some have one click per rotation, some have two, others even have four. If you see multiple messages during a single turn while running the test_circuit file, set this parameter higher in all files before uploading.
 
+## TODO:
+- Upload code for 6ch sequencer mode
+- Upload double sided panel gerber
+
 
 
