@@ -18,12 +18,11 @@ Standard settings should be fine.
 
 The PCB is relatively simple to build, all the components are through-hole soldering.
 It is easiest to start first with the resistors and capacitors, then the headers, and then the jacks at the end.
-![Gif of the sequencer running](images/side.jpg | width=100)
 <img src="images/side.jpg" width="50%" height="50%">
 
 The only thing that is a bit tricky is the screen, since depending on your components it can stand out on the top. 
 To prevent this, you can try soldering the display directly on the PCB.
-![Gif of the sequencer running](images/screen.jpg)
+<img src="images/screen.jpg" width="50%" height="50%">
 
 Another optional but good idea is gluing the screen to the panel first before mounting to ensure it is positioned directly behind the cutout.
 
