@@ -1,4 +1,4 @@
-# HAGIWO 6 Channel Sequencer / Euclidean Rythm Sequencer
+# HAGIWO 6 Channel Sequencer / Euclidean Rhythm Sequencer
 
 ![Gif of the sequencer running](images/euclid.gif)
 
