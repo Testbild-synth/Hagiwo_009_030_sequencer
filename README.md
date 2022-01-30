@@ -40,7 +40,7 @@ I also changed it such that is uses DigitalReadFast instead of DigitalRead (to r
 One important change from HAGIWO's code is the introduction of the parameter ENCODER_COUNT_PER_ROTATION. 
 Rotation encoders come in different versions, some have one click per rotation, some have two, others even have four. If you see multiple messages during a single turn while running the test_circuit file, set this parameter higher in all files before uploading.
 
-For the six channel sequencer, there are preprogrammed pattern banks you can change. The patterns are in hexadecimal and represent 16 binary numbers. So for example if the number says 0x8888, this means 1000100010001000, meaning a four on the floor pattern. Use a [hex to binary converter](https://www.rapidtables.com/convert/number/hex-to-binary.html) to help you convert it.
+For the six channel sequencer, there are preprogrammed pattern banks you can change (bnk1_ptn, bnk2_ptn, etc.). The patterns are in hexadecimal and represent 16 binary numbers. So for example if the number says 0x8888, this means 1000100010001000, meaning a four on the floor pattern. Use a [hex to binary converter](https://www.rapidtables.com/convert/number/hex-to-binary.html) to help you convert it.
 
 HAGIWO's version only updates the screen when the clock comes in, but I think this makes for a bad user experience so I changed it to update when you turn the encoder as well. 
 
