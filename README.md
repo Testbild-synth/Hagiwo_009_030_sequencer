@@ -9,7 +9,7 @@ Since both modules use the same hardware, I made it so that the panel pcb is fli
 
 ## PCB and Hardware
 
-You can find the BOM in the root folder.
+You can find the schematic and BOM in the root folder.
 For the PCBs, the module has one circuit PCB and one panel PCB. 
 You can order them on any common PCB manufacturing service, I used [JLCPCB](https://jlcpcb.com/).
 Standard settings should be fine.
