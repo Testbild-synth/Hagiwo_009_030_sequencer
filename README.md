@@ -46,6 +46,6 @@ HAGIWO's version only updates the screen when the clock comes in, but I think th
 
 ## TODO:
 - Upload double sided panel gerber
-- Maybe add more rhythm patterns to 6 channel sequencer
+- Maybe add more rhythm patterns to 6 channel sequencer (If anyone here has suggestions, message me and I can add them
 
 
