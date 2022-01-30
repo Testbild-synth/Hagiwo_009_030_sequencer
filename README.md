@@ -14,9 +14,11 @@ For the PCBs, the module has one circuit PCB and one panel PCB.
 You can order them on any common PCB manufacturing service, I used [JLCPCB](https://jlcpcb.com/).
 Standard settings should be fine.
 
-The panel PCB is switchable to reflect the function depending on the firmware you want to use.
-<img src="images/panel.png" width="25%" height="25%">
+The panel PCB is switchable to reflect the function depending on the firmware you want to use.    
 
+<img src="images/panel.png" width="25%" height="25%">
+    
+    
 ## Assembly Instructions
 
 The PCB is relatively simple to build, all the components are through-hole soldering.
