@@ -30,8 +30,8 @@ Another optional but good idea is gluing the screen to the panel first before mo
 ## Arduino Code and Testing
 
 There are three Arduino files included in this project:
-- The project file for the six channel drum sequencer (six_channel.ino)
-- The project file for the euclidean sequencer        (euclidean.ino)
+- The project file for the six channel drum sequencer (six_channel_sequencer.ino)
+- The project file for the euclidean sequencer        (euclid_sequencer.ino)
 - A file for testing in/outputs to make sure you soldered everything correctly (test_circuit.ino). This file prints to the serial to test inputs and sets the digital outputs.
 
 You need the [Adafruit_SSD1306](https://www.arduino.cc/reference/en/libraries/adafruit-ssd1306/) and [encoder](https://www.arduino.cc/reference/en/libraries/encoder/) libraries.
