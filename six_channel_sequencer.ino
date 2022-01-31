@@ -5,6 +5,8 @@
 //エンコーダ用ライブラリ
 #define  ENCODER_OPTIMIZE_INTERRUPTS //エンコーダノイズ対策
 #include <Encoder.h>
+#include <FastGPIO.h>
+
 
 //OLED用ライブラリ
 #include<Wire.h>
@@ -187,7 +189,7 @@ const static word bnk3_ptn[8][12]PROGMEM = {
 };
 
 unsigned int last_refresh = 0;
-int max_refresh_time = 90;
+int max_refresh_time = 100;
 bool refresh_display = true;
 
 void setup() {
@@ -196,14 +198,8 @@ void setup() {
  // ディスプレイの初期化
  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
 
- pinMode(ENCODER_SW_PIN, INPUT_PULLUP); //BUTTON
- pinMode(OUT_CH1, OUTPUT); //CH1
- pinMode(OUT_CH2, OUTPUT); //CH2
- pinMode(OUT_CH3, OUTPUT); //CH3
- pinMode(OUT_CH4, OUTPUT); //CH4
- pinMode(OUT_CH5, OUTPUT); //CH5
- pinMode(OUT_CH6, OUTPUT); //CH6
- pinMode(CLK_PIN, INPUT); // CLK
+ FastGPIO::Pin<ENCODER_SW_PIN>::setInputPulledUp(); //BUTTON
+ FastGPIO::Pin<CLK_PIN>::setInput(); // CLK
 
  //保存データの読み出し
  ch1_step = EEPROM.read(1) * 256 + EEPROM.read(2);
@@ -212,8 +208,6 @@ void setup() {
  ch4_step = EEPROM.read(7) * 256 + EEPROM.read(8);
  ch5_step = EEPROM.read(9) * 256 + EEPROM.read(10);
  ch6_step = EEPROM.read(11) * 256 + EEPROM.read(12);
- //開発用通信設定
- //  Serial.begin(9600);
 
  OLED_display();
 }
@@ -456,7 +450,7 @@ void loop() {
  }
  //--------------外部クロック入力検出,カウント----------------
 
- clock_in = digitalRead(CLK_PIN);
+ clock_in = FastGPIO::Pin<CLK_PIN>::isInputHigh();
 
  if (old_clock_in == 0 && clock_in == 1) {
    if((millis()-last_refresh)>max_refresh_time){
@@ -499,24 +493,13 @@ void loop() {
  CH6_output = bitRead(ch6_step, 16 - step_count );
 
  //--------------出力----------------------------------
- if (CH1_output == 1 && CH1_mute == 0) {
-   digitalWrite(OUT_CH1, clock_in);
- }
- if (CH2_output == 1 && CH2_mute == 0) {
-   digitalWrite(OUT_CH2, clock_in);
- }
- if (CH3_output == 1 && CH3_mute == 0) {
-   digitalWrite(OUT_CH3, clock_in);
- }
- if (CH4_output == 1 && CH4_mute == 0) {
-   digitalWrite(OUT_CH4, clock_in);
- }
- if (CH5_output == 1 && CH5_mute == 0) {
-   digitalWrite(OUT_CH5, clock_in);
- }
- if (CH6_output == 1 && CH6_mute == 0) {
-   digitalWrite(OUT_CH6, clock_in);
- }
+ FastGPIO::Pin<OUT_CH1>::setOutputValue(clock_in && CH1_output && !CH1_mute);
+ FastGPIO::Pin<OUT_CH2>::setOutputValue(clock_in && CH2_output && !CH2_mute);
+ FastGPIO::Pin<OUT_CH3>::setOutputValue(clock_in && CH3_output && !CH3_mute);
+ FastGPIO::Pin<OUT_CH4>::setOutputValue(clock_in && CH4_output && !CH4_mute);
+ FastGPIO::Pin<OUT_CH5>::setOutputValue(clock_in && CH5_output && !CH5_mute);
+ FastGPIO::Pin<OUT_CH6>::setOutputValue(clock_in && CH6_output && !CH6_mute);
+
 
  //--------------OLED出力----------------------------------
  //注意：OLEDの更新はクロック入ったタイミングのみ。Arduinoのビジー状態を避けるため。

@@ -2,7 +2,7 @@
 //Encoder setting
 #define  ENCODER_OPTIMIZE_INTERRUPTS //countermeasure of encoder noise
 #include <Encoder.h>
-#include <digitalWriteFast.h>
+#include <FastGPIO.h>
 
 //Oled setting
 #include<Wire.h>
@@ -116,13 +116,8 @@ void setup() {
  OLED_display();
 
  //pin mode setting
- pinMode(ENCODER_SW_PIN, INPUT_PULLUP); //BUTTON
- pinModeFast(OUT_CH1, OUTPUT); //CH1
- pinModeFast(OUT_CH2, OUTPUT); //CH2
- pinModeFast(OUT_CH3, OUTPUT); //CH3
- pinModeFast(OUT_CH4, OUTPUT); //CH4
- pinModeFast(OUT_CH5, OUTPUT); //CH5
- pinModeFast(OUT_CH6, OUTPUT); //CH6
+ FastGPIO::Pin<ENCODER_SW_PIN>::setInputPulledUp(); //BUTTON
+ FastGPIO::Pin<CLK_PIN>::setInput(); // CLK
 }
 
 void loop() {
@@ -155,7 +150,7 @@ void loop() {
  //-----------------push button----------------------
 
  sw = 1;
- if ((digitalRead(ENCODER_SW_PIN) == 0 ) && ( sw_timer + 300 <= millis() )) { //push button on ,Logic inversion , sw_timer is countermeasure of chattering
+ if ((!FastGPIO::Pin<ENCODER_SW_PIN>::isInputHigh()) && ( sw_timer + 300 <= millis() )) { //push button on ,Logic inversion , sw_timer is countermeasure of chattering
    sw_timer = millis();
    sw = 0;
    disp_refresh = 1;//Enable while debugging.
@@ -224,7 +219,7 @@ void loop() {
  }
 
  //-----------------trigger detect & output----------------------
- trg_in = digitalReadFast(CLK_PIN);//external trigger in
+ trg_in = FastGPIO::Pin<CLK_PIN>::isInputHigh();//external trigger in
  if (old_trg_in == 0 && trg_in == 1) {
    gate_timer = millis();
    for (i = 0; i <= 5; i++) {
@@ -237,27 +232,27 @@ void loop() {
      if (offset_buf[k][playing_step[k]] == 1 && mute[k] == 0) {
        switch (k) {
          case 0:
-           digitalWriteFast(OUT_CH1, HIGH);
+           FastGPIO::Pin<OUT_CH1>::setOutputValue(HIGH);
            break;
 
          case 1:
-           digitalWriteFast(OUT_CH2, HIGH);
+           FastGPIO::Pin<OUT_CH2>::setOutputValue(HIGH);
            break;
 
          case 2:
-           digitalWriteFast(OUT_CH3, HIGH);
+           FastGPIO::Pin<OUT_CH3>::setOutputValue(HIGH);
            break;
 
          case 3:
-           digitalWriteFast(OUT_CH4, HIGH);
+           FastGPIO::Pin<OUT_CH4>::setOutputValue(HIGH);
            break;
 
          case 4:
-           digitalWriteFast(OUT_CH5, HIGH);
+           FastGPIO::Pin<OUT_CH5>::setOutputValue(HIGH);
            break;
 
          case 5:
-           digitalWriteFast(OUT_CH6, HIGH);
+           FastGPIO::Pin<OUT_CH6>::setOutputValue(HIGH);
            break;
        }
      }
@@ -283,12 +278,12 @@ void loop() {
  }
 
  if  (gate_timer + 10 <= millis()) { //off all gate , gate time is 10msec
-   digitalWriteFast(OUT_CH1, LOW);
-   digitalWriteFast(OUT_CH2, LOW);
-   digitalWriteFast(OUT_CH3, LOW);
-   digitalWriteFast(OUT_CH4, LOW);
-   digitalWriteFast(OUT_CH5, LOW);
-   digitalWriteFast(OUT_CH6, LOW);
+   FastGPIO::Pin<OUT_CH1>::setOutputValue(LOW);
+   FastGPIO::Pin<OUT_CH2>::setOutputValue(LOW);
+   FastGPIO::Pin<OUT_CH3>::setOutputValue(LOW);
+   FastGPIO::Pin<OUT_CH4>::setOutputValue(LOW);
+   FastGPIO::Pin<OUT_CH5>::setOutputValue(LOW);
+   FastGPIO::Pin<OUT_CH6>::setOutputValue(LOW);
  }
 
 
