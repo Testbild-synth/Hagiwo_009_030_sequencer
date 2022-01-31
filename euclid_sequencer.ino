@@ -38,6 +38,8 @@ bool sw = 0;//push button
 bool old_sw;//countermeasure of sw chattering
 unsigned long sw_timer = 0;//countermeasure of sw chattering
 
+
+
 //each channel param
 byte hits[6] = { 4, 4, 5, 3, 2, 16};//each channel hits
 byte offset[6] = { 0, 2, 0, 8, 3, 9};//each channele step offset
@@ -79,6 +81,9 @@ unsigned long gate_timer = 0;//countermeasure of sw chattering
 //display param
 byte select_menu = 0;//0=CH,1=HIT,2=OFFSET,3=LIMIT,4=MUTE,5=RESET,
 byte select_ch = 0;//0~5 = each channel -1 , 6 = random mode
+
+unsigned int last_refresh = 0;
+const int  max_refresh_time = 70;
 bool disp_refresh = 1;//0=not refresh display , 1= refresh display , countermeasure of display refresh bussy
 
 const byte graph_x[6] = {0, 40, 80, 15, 55, 95};//each chanel display offset
@@ -257,7 +262,12 @@ void loop() {
        }
      }
    }
-   disp_refresh = 1;//Updates the display where the trigger was entered.If it update it all the time, the response of gate on will be worse.
+   // if the bpm is too high we want to still have output but not update the screen so that the arduino is not busy
+   if((millis()-last_refresh) > max_refresh_time){
+      disp_refresh = 1;
+      last_refresh = millis();
+   }
+   //Updates the display where the trigger was entered.If it update it all the time, the response of gate on will be worse.
 
    if (select_ch == 6) {// random mode setting
      step_cnt ++;

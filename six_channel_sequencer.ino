@@ -186,6 +186,8 @@ const static word bnk3_ptn[8][12]PROGMEM = {
  }
 };
 
+unsigned int last_refresh = 0;
+int max_refresh_time = 90;
 bool refresh_display = true;
 
 void setup() {
@@ -201,6 +203,7 @@ void setup() {
  pinMode(OUT_CH4, OUTPUT); //CH4
  pinMode(OUT_CH5, OUTPUT); //CH5
  pinMode(OUT_CH6, OUTPUT); //CH6
+ pinMode(CLK_PIN, INPUT); // CLK
 
  //保存データの読み出し
  ch1_step = EEPROM.read(1) * 256 + EEPROM.read(2);
@@ -209,7 +212,6 @@ void setup() {
  ch4_step = EEPROM.read(7) * 256 + EEPROM.read(8);
  ch5_step = EEPROM.read(9) * 256 + EEPROM.read(10);
  ch6_step = EEPROM.read(11) * 256 + EEPROM.read(12);
-
  //開発用通信設定
  //  Serial.begin(9600);
 
@@ -457,7 +459,10 @@ void loop() {
  clock_in = digitalRead(CLK_PIN);
 
  if (old_clock_in == 0 && clock_in == 1) {
-   refresh_display = true;
+   if((millis()-last_refresh)>max_refresh_time){
+      refresh_display = true;
+      last_refresh = millis();
+   }
    step_count++;
  }
 
