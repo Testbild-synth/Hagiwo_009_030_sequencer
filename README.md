@@ -18,6 +18,9 @@ You can order them on any common PCB manufacturing service, I used [JLCPCB](http
 Standard settings should be fine.
 If the panel sizes are not recognized correctly (may happen with my export sometimes) just put 128.5x30.
 
+Use the panel_pcb.zip gerbers if you want a panel with exposed solder mask (so silver letters for title) but then make sure to choose a lead free finish cause health reasons.
+If you don't want that, use the "panel_no_silver.zip" version.
+
 The panel PCB is switchable to reflect the function depending on the firmware you want to use.    
 
 <img src="images/panel.png" width="25%" height="25%">
