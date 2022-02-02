@@ -16,6 +16,7 @@ You can find the schematic and BOM in the root folder.
 For the PCBs, the module has one circuit PCB and one panel PCB. 
 You can order them on any common PCB manufacturing service, I used [JLCPCB](https://jlcpcb.com/).
 Standard settings should be fine.
+If the panel sizes are not recognized correctly (may happen with my export sometimes) just put 128.5x30.
 
 The panel PCB is switchable to reflect the function depending on the firmware you want to use.    
 
