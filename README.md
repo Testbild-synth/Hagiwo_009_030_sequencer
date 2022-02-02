@@ -53,7 +53,6 @@ For the six channel sequencer, there are preprogrammed pattern banks you can cha
 HAGIWO's version only updates the screen when the clock comes in, but I think this makes for a bad user experience so I changed it to update when you turn the encoder as well. 
 
 ## TODO:
-- Upload double sided panel gerber
-- Maybe add more rhythm patterns to 6 channel sequencer (If anyone here has suggestions, message me and I can add them
+- Maybe add more rhythm patterns to 6 channel sequencer (taking suggestions here if people want to help me with the work)
 
 
