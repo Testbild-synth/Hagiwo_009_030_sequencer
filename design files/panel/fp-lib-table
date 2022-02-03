@@ -1,0 +1,4 @@
+
+(fp_lib_table
+  (lib (name "hagiwo_double_seq")(type KiCad)(uri "$(KIPRJMOD)/hagiwo_double_seq.pretty")(options "")(descr ""))
+)
