@@ -36,7 +36,8 @@ The only thing that is a bit tricky is the screen, since depending on your compo
 To prevent this, you can try soldering the display directly on the PCB.
 <img src="images/screen.jpg" width="50%" height="50%">
 
-Another optional but good idea is gluing the screen to the panel first before mounting to ensure it is positioned directly behind the cutout.
+Another optional but good idea is glueing the screen to the panel first before mounting to ensure it is positioned directly behind the cutout.
+Downside to glueing is obviously not being able to flip the panel when flashing the firmware so only do it if you build two or are sure you dont need the other side of the panel.
 
 
 ## Arduino Code and Testing
