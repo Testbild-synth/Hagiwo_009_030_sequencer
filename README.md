@@ -15,7 +15,8 @@ Since both modules use the same hardware, I made it so that the panel pcb is fli
 You can find the schematic and BOM in the root folder.
 For the PCBs, the module has one circuit PCB and one panel PCB. 
 You can order them on any common PCB manufacturing service, I used [JLCPCB](https://jlcpcb.com/).
-Standard settings should be fine.
+Standard settings should be fine, but if you have exposed copper on the panel you should go with a lead free surface finish (ENIG/Leadfree HASL).
+
 If the panel sizes are not recognized correctly (may happen with my export sometimes) just put 128.5x30.
 
 Use the panel_pcb.zip gerbers if you want a panel with exposed solder mask (so silver letters for title) but then make sure to choose a lead free finish cause health reasons.
