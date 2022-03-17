@@ -64,3 +64,6 @@ HAGIWO's version only updates the screen when the clock comes in, but I think th
 - Maybe add more rhythm patterns to 6 channel sequencer (taking suggestions here if people want to help me with the work)
 
 
+## Successful builds
+<img src="images/build_felix.jpeg" width="40%" height="40%"> <img src="images/build_felix2.jpeg" width="40%" height="40%">
+By Felix W.
