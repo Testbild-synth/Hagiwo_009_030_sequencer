@@ -68,3 +68,7 @@ HAGIWO's version only updates the screen when the clock comes in, but I think th
 <img src="images/build_felix.jpeg" width="30%" height="30%"> <img src="images/build_felix2.jpeg" width="30%" height="30%">
 
 By Felix W.
+
+<img src="images/build_elijah.jpeg" width="30%" height="30%"> <img src="images/build_felix2.jpeg" width="30%" height="30%">
+
+By Elija
