@@ -25,7 +25,7 @@ If you don't want that, use the "panel_no_silver.zip" version.
 
 The panel PCB is switchable to reflect the function depending on the firmware you want to use.    
 
-<img src="images/panel.png" width="25%" height="25%">
+<img src="images/panel.png" width="35%" height="35%">
     
     
 ## Assembly Instructions
