@@ -277,7 +277,7 @@ void loop() {
    }
  }
 
- if  (gate_timer + 10 <= millis()) { //off all gate , gate time is 10msec
+ if  (gate_timer + 100 <= millis()) { //off all gate , gate time is 10msec
    FastGPIO::Pin<OUT_CH1>::setOutputValue(LOW);
    FastGPIO::Pin<OUT_CH2>::setOutputValue(LOW);
    FastGPIO::Pin<OUT_CH3>::setOutputValue(LOW);
