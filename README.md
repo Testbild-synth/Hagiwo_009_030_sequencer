@@ -9,7 +9,7 @@ I saw that there are some modules that have VCC-GND-SCL-SDA, but we need GND-VCC
 <img src="images/display.jpg" width="25%" height="25%">
 Since both modules use the same hardware, I made it so that the panel pcb is flippable to reflect both functions.
 
-## Status: I found out there was a really dumb issue with the previous panel, namely it not being flippable at all because it was not symmetric (duh). I uploaded a fixed version.
+## Status: Don't build this right now, new revision is coming soon!
 
 ## PCB and Hardware
 
